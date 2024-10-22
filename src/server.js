@@ -2,7 +2,7 @@ import express from 'express';
 import pino from 'pino-http';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { contactsRouter } from './routers/contacts.js';
+import contactsRouter from './routers/contacts.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 
@@ -12,7 +12,10 @@ const PORT = Number(process.env.PORT) || 3000;
 
 export const setupServer = () => {
     const app = express();
-    app.use(express.json());
+    app.use(express.json({
+        type: ['application/json', 'application/vnd.api+json'],
+        limit: '100kb',
+    }));
     app.use(cors());
 
     app.use(
