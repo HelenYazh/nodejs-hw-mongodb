@@ -3,7 +3,7 @@ import { calculatePaginationData } from "../utils/calculatePaginationData.js";
 
 export const getAllContacts = async ({ page, perPage, sortBy, sortOrder, filter = {} }) => {
     const limit = perPage;
-    const skip = (page - 1);
+    const skip = (page - 1) * perPage;
 
 
     const contactsQuery = ContactsCollection.find();
