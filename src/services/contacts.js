@@ -31,15 +31,18 @@ export const getAllContacts = async ({ page, perPage, sortBy, sortOrder, filter 
     };
 };
 
+
 export const getContactById = async (contactId) => {
     const contact = await ContactsCollection.findById(contactId);
     return contact;
 };
 
+
 export const createContact = async (payload) => {
     const contact = await ContactsCollection.create(payload);
     return contact;
 };
+
 
 export const updateContact = async (contactId, payload, options = {}) => {
     const rawResult = await ContactsCollection.findOneAndUpdate(
@@ -58,6 +61,7 @@ export const updateContact = async (contactId, payload, options = {}) => {
         isNew: Boolean(rawResult?.lastErrorObject?.upserted),
     };
 };
+
 
 export const deleteContact = async (contactId) => {
     const contact = await ContactsCollection.findByIdAndDelete({
