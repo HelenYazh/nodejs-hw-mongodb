@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 import router from './routers/index.js';
+import cookieParser from 'cookie-parser';
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ export const setupServer = () => {
         limit: '100kb',
     }));
     app.use(cors());
+    app.use(cookieParser());
 
     app.use(
         pino({
