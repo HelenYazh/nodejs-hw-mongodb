@@ -11,5 +11,6 @@ router.post("/register", validateBody(registerUserSchema), ctrlWrapper(registerU
 router.post("/login", validateBody(loginUserSchema), ctrlWrapper(loginUserController));
 router.post("/logout", ctrlWrapper(logoutUserController));
 router.post("/refresh", ctrlWrapper(refreshUserSessionController));
+router.post("/send-reset-email",);
 
 export default router;
