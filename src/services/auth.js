@@ -122,7 +122,6 @@ export const requestResetToken = async (email) => {
         subject: "Reset your password",
         html,
     });
-    console.log("Reset email sent to:", email);
 };
 
 
