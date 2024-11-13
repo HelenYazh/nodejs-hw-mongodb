@@ -53,7 +53,7 @@ export const updateContact = async (contactId, userId, payload, options = {}) =>
             ...options,
         });
 
-    return updatedContact ? { contact: updatedContact, isNew: false } : null;
+    return updatedContact ? updatedContact : null;
 };
 
 
