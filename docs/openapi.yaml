@@ -12,12 +12,15 @@ tags:
   - name: Auth
     description: Auth operations.
 servers:
-  - url: http://localhost:3000
+  - url: http://127.0.0.1:3000
   - url: https://contacts-app-x4p7.onrender.com
 paths:
   /contacts/{id}:
     get:
       $ref: ../swagger/paths/contacts/{id}/get.yaml
+  /contacts:
+    post:
+      $ref: ../swagger/paths/contacts/post.yaml
 components:
   securitySchemes:
     bearerAuth:
