@@ -202,8 +202,7 @@
                 "required": [
                   "name",
                   "phoneNumber",
-                  "contactType",
-                  "userId"
+                  "contactType"
                 ],
                 "properties": {
                   "name": {
@@ -235,11 +234,6 @@
                       "personal"
                     ],
                     "default": "personal"
-                  },
-                  "userId": {
-                    "description": "Contact's user id",
-                    "type": "string",
-                    "example": "6726846963175a2dc7b159ce"
                   },
                   "photo": {
                     "description": "Link to contact's photo",
@@ -383,9 +377,6 @@
             "multipart/form-data": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "userId"
-                ],
                 "properties": {
                   "name": {
                     "description": "Contact's name",
@@ -416,11 +407,6 @@
                       "personal"
                     ],
                     "default": "personal"
-                  },
-                  "userId": {
-                    "description": "Contact's user id",
-                    "type": "string",
-                    "example": "6726846963175a2dc7b159ce"
                   },
                   "photo": {
                     "description": "Link to contact's photo",
