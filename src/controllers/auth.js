@@ -1,4 +1,5 @@
 import { THIRTY_DAYS } from "../constants/index.js";
+import { UsersCollection } from "../db/models/user.js";
 import {
     loginUser,
     logoutUser,
@@ -21,6 +22,7 @@ export const registerUserController = async (req, res) => {
 
 export const loginUserController = async (req, res) => {
     const session = await loginUser(req.body);
+    const { name } = await UsersCollection.findOne({ email: req.body.email });
 
     res.cookie("refreshToken", session.refreshToken, {
         httpOnly: true,
@@ -37,6 +39,7 @@ export const loginUserController = async (req, res) => {
         message: "Successfully logged in an user!",
         data: {
             accessToken: session.accessToken,
+            name,
         },
     });
 };
