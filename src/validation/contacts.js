@@ -16,7 +16,7 @@ export const createContactSchema = Joi.object({
         'string.max': 'Email should have at most {#limit} characters',
     }),
     isFavourite: Joi.boolean(),
-    contactType: Joi.string().valid("work", "home", "personal").required().messages({
+    contactType: Joi.string().valid("work", "home", "personal").messages({
         'any.required': 'Contact type is required',
     }),
     photo: Joi.string(),
